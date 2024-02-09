@@ -26,16 +26,3 @@ print(solve(35, 94))
 #5
 
 #6
-def reverseString(string):
-    j = 0
-    for i in range(0, len(string)):
-        if(string[i] == " "):
-            print(string[j:i])
-            j = i + 1
-    # for i in range(1, len(string) + 1):
-    #     if(string[-i] == ' '):
-    #         print(string[j:-i])
-    #         j = -i
-    return 0
-
-print(reverseString("We are ready"))
