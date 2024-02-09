@@ -27,6 +27,8 @@ class Square(Shape):
         self.length = length
         self.Area = length * length
         pass
+
+# 3 task
 class Rectangle(Shape):
     def __init__(self, length, width) -> None:
         self.length = length
@@ -41,7 +43,7 @@ rectangle = Rectangle(25, 30)
 rectangle.CalculateArea()
 rectangle.area()
 
-# 3 task
+# 4 task
 
 class Point():
     def __init__(self, coordinate_x, coordinate_y):
@@ -67,3 +69,25 @@ second_point.show()
 first_point.dist(first_point, second_point)
 
 second_point.dist(second_point, first_point)
+
+class Bank_account():
+    def __init__(self, owner, balance) -> None:
+        self.owner = owner
+        self.balance = balance
+        pass
+    def deposit(self, amount):
+        print("The current balance is: ", self.balance)
+        self.balance += amount
+        print("The new balance is: ", self.balance)
+    def withdraw(self, amount):
+        if(amount > self.balance):
+            print("Balance is less than the amount")
+        else:
+            self.balance -= amount
+        print("The balance is: ", self.balance)
+
+John = Bank_account("John", 25000)
+John.deposit(35000)
+John.withdraw(100000)
+
+# task 6
