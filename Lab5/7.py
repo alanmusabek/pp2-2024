@@ -1,4 +1,5 @@
-txt = "sdsdsgd_egasgds_agasfga_ba"
+with open("./row.txt", "r", encoding="utf-8") as file:
+    txt = file.read()
 
 x = txt.split('_')
 
