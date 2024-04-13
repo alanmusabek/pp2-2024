@@ -1,4 +1,6 @@
 import pygame
+import time
+import math
 
 pygame.init()
 screen = pygame.display.set_mode((1980, 720))
@@ -10,7 +12,6 @@ right_arm = pygame.transform.scale(right_arm, (600,400))
 left_arm = pygame.image.load('./images/mickeyclock.png')
 left_arm = pygame.transform.scale(left_arm, (600,400))
 
-angle_1 = 0
 def blitRotate(surf, image, pos, originPos, angle):
 
     # offset from pivot to center
@@ -37,6 +38,14 @@ def blitRotate2(surf, image, topleft, angle):
 
     surf.blit(rotated_image, new_rect.topleft)
     pygame.draw.rect(surf, (255, 0, 0), new_rect, 2)
+
+def get_angle():
+    current_time = time.localtime()
+    seconds = current_time.tm_sec
+    minutes = current_time.tm_min
+    seconds_angle = (seconds / 60) * 360
+    minutes_angle = ((minutes * 60 + seconds) / 3600) * 360
+    return seconds_angle, minutes_angle
 
 try:
     left_arm = pygame.image.load('./images/mickeyclock.png')
@@ -67,10 +76,9 @@ while True:
 
     pos = (screen.get_width()/2, screen.get_height()/2)
     
-    angle_1 -= 1/100
+    seconds_angle, minutes_angle = get_angle()
     blitRotate(screen, image, pos, (w_2/2, h_2/2), 0)
-    blitRotate(screen, right_arm, pos, (w/2, h/2), angle)
-    blitRotate(screen, left_arm, pos, (w_1/2, h_1/2), angle_1)
+    blitRotate(screen, right_arm, pos, (w/2, h/2), -seconds_angle)
+    blitRotate(screen, left_arm, pos, (w_1/2, h_1/2), -minutes_angle)
     #blitRotate2(screen, image, pos, angle)
-    angle -= 1
     pygame.display.update()

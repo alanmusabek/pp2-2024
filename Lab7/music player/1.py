@@ -3,7 +3,7 @@ import pygame
 
 pygame.init()
 pygame.mixer.init()
-screen = pygame.display.set_mode((160, 160))
+screen = pygame.display.set_mode((360, 360))
 done = False
 clock = pygame.time.Clock()
 _songs = ['./songs/Jumpsuit.mp3', './songs/Bandito.mp3', './songs/Morph.mp3']
