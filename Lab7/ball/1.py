@@ -25,13 +25,13 @@ while not done:
 
     keys = pygame.key.get_pressed()
 
-    if keys[pygame.K_UP] and ball_y - move_speed >= 0:
+    if keys[pygame.K_UP] and ball_y - move_speed >= 13:
         ball_y -= move_speed
-    if keys[pygame.K_DOWN] and ball_y + move_speed <= screen_height:
+    if keys[pygame.K_DOWN] and ball_y + move_speed <= screen_height - (move_speed - 5):
         ball_y += move_speed
-    if keys[pygame.K_LEFT] and ball_x - move_speed >= 0:
+    if keys[pygame.K_LEFT] and ball_x - move_speed >= 13:
         ball_x -= move_speed
-    if keys[pygame.K_RIGHT] and ball_x + move_speed <= screen_width:
+    if keys[pygame.K_RIGHT] and ball_x + move_speed <= screen_width - (move_speed - 5):
         ball_x += move_speed
 
     screen.fill(WHITE)
